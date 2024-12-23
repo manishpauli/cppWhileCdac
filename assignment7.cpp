@@ -10,7 +10,7 @@ void shift_to_right(int*);
 void insert(int*);
 int search(int*,int);
 void display_reverse(int*);
-//void delete_arr(int*);
+void delete_arr(int*);
 int main ()
 {
     int *ptr = new int [5];
@@ -59,10 +59,10 @@ int main ()
                   shift_to_left(ptr);
                   shift_to_right(ptr);
                   break;
-        /*case 5:   display(ptr);
+        case 5:   display(ptr);
                   insert(ptr);
-                  //delete_arr(ptr);
-                  break;*/
+                  delete_arr(ptr);
+                  break;
         case 6:   display(ptr);
                   cout<<"\n enter the number you want to check in the array : ";
                   cin>>i;
@@ -93,7 +93,7 @@ void display(int *p)
 
 void sum_average_dynamic_array(int *prr)
 {
-    int sum=0, i,j;
+    int sum=0, i , j;
     float avg =0.0;
     for(i=0;i<n;i++)
     {
@@ -156,8 +156,7 @@ void shift_to_left(int *p)
 void shift_to_right(int *p)
 {
   int i ,temp1;
-  for(i=0;i<n;i++)
-        p[i]= i+10;
+
   temp1=p[n-1];
   cout<<"Shifting to right\n";
   for(i=(n-1);i>=0;i--)
@@ -168,34 +167,45 @@ void shift_to_right(int *p)
   display(p);
 }
 
-/*void insert(int *p)
+void insert(int *p)
 {
   int pos,val;
-  cout<<"\n Enter position and Values you want to insert : ";
-  cin>>pos>>val;  
-  int i,temp = p[pos];
+  cout<<"\n Enter position where you want to insert : ";
+  cin>>pos; 
+  cout<<"\n Enter Values you want to insert : ";
+  cin>>val;
+  int i,temp = p[pos-1];
+  p[pos-1] = val;
   for (i=0;i<n;i++)
   {
-       if(i>=pos)
-       {
-        p[i+1]=p[i];
-        p[pos]= val;
-       }
+   
+    if(i>=pos)
+    {
+      int temp1 = p[i];
+     p[i]=temp;
+     temp=temp1;
+    }
   }
+  display(p);
 }
 
-void delete_arr(int *p,int pos,int val)
+void delete_arr(int *p)
 {
+int pos;
+  cout<<"\n Enter position where you want to delete : ";
+  cin>>pos; 
 int i,temp = p[pos];
   for (i=0;i<n;i++)
   {
        if(i>=pos)
        {
-        p[i+1]=p[i];
-        p[pos]= val;
+        p[i-1]=p[i];
+        
        }
   }
-}*/
+  p[n-1]=0;
+  display(p);
+}
 
 int search(int *p,int val)
 {

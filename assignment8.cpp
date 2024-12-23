@@ -183,7 +183,7 @@ void reverse_row_2D_array (int **ptr)
     {
       for (j=n-1 ; j>=0; j--)
       {
-        cout<<" "<<ptr[i][j];           // populating integer array
+        cout<<" "<<ptr[i][j]; // displaying in reverse only not overwriting initial values
       }
       cout<<"\n";
     }
