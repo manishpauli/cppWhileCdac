@@ -7,7 +7,6 @@ using namespace std;
 void diagonal(int arr[n][m])
 {
    vector<vector<int> > ans(n + m - 1); 
-  
     for (int i = 0; i < m; i++)  
     { 
         for (int j = 0; j < n; j++)  
